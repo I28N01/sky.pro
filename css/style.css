@@ -74,6 +74,14 @@ input:focus {
     line-height: 72px;
     text-align: center;
     color: #0080C1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.level:hover {
+    background:#0080C1;
+    color: #FFFFFF;
 }
 
 .startButton {
