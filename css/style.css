@@ -1,0 +1,102 @@
+@font-face {
+        font-family: "StratosSkyeng";
+        src: url("./stratosskyengweb-regular.woff") format("woff");
+        font-style: normal;
+        font-weight: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    font-style: normal;
+}
+
+input, button {
+    border: none; 
+}
+
+input:focus {
+    outline: none 
+}
+
+.wrap {
+    background: #004980;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    width: 480px;
+    height: 459px;
+    background: #C2F5FF;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.titleWrap {
+    margin-top: 52px;
+    width: 208px;
+}
+
+.header {
+    font-family: 'StratosSkyeng';
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+    text-align: center;
+    color: #004980;
+}
+
+.levelWrap {
+    display: flex;
+    gap: 24px;
+}
+
+.level {
+    margin-top: 52px;
+    width: 98px;
+    height: 98px;
+    background: #FFFFFF;
+    border-radius: 12px;
+    font-family: 'StratosSkyeng';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 72px;
+    text-align: center;
+    color: #0080C1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.level:hover {
+    background:#0080C1;
+    color: #FFFFFF;
+}
+
+.startButton {
+    margin-top: 67px;
+    width: 246px;
+    height: 50px;
+    background: #7AC100;
+    border-radius: 12px;
+
+    font-family: 'StratosSkyeng';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    color: #FFFFFF;
+
+}
