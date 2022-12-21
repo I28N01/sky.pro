@@ -27,8 +27,11 @@ input:focus {
     background: #004980;
     display: flex;
     height: 100vh;
+}
+
+.difficultySelection {
     justify-content: center;
-    align-items: center;
+    align-items: center;  
 }
 
 .box {
@@ -59,6 +62,7 @@ input:focus {
 .levelWrap {
     display: flex;
     gap: 24px;
+    margin-bottom: 67px;
 }
 
 .level {
@@ -85,13 +89,11 @@ input:focus {
     color: #FFFFFF;
 }
 
-.startButton {
-    margin-top: 67px;
+.button {
     width: 246px;
     height: 50px;
     background: #7AC100;
     border-radius: 12px;
-
     font-family: 'StratosSkyeng';
     font-style: normal;
     font-weight: 400;
@@ -108,4 +110,65 @@ input:focus {
 .selected {
     background:#0080C1;
     color: #FFFFFF;
+}
+
+.gameScreen {
+    flex-direction: column;
+}
+
+
+.gameData {
+    margin: 22px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.timer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: flex-start;
+    justify-content: flex-start;
+}
+
+.timerName {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    color: #FFFFFF;
+    display: flex;
+    gap: 58px;
+    justify-content: flex-end;
+    padding-right: 8px;
+}
+
+.timerDigital {
+    font-family: 'StratosSkyeng';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 72px;
+    color: #FFFFFF;
+}
+
+.resetBtn {
+    margin-top: 30px;
+}
+
+.cardField {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.playCard {
+    width: 95px;
+    height: 133px;
+    background-color: #FFFFFF;
+}
+
+.playCardCover {
+    background-image: url(../img/card-cover.png);
 }

@@ -1,0 +1,19 @@
+{
+  "name": "git",
+  "version": "1.0.0",
+  "description": "for study",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/I28N01/sky.pro.git"
+  },
+  "author": "i28no1",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/I28N01/sky.pro/issues"
+  },
+  "homepage": "https://github.com/I28N01/sky.pro#readme"
+}
