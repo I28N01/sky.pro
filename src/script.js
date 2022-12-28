@@ -107,8 +107,8 @@ function createCards() {
     for (let i = 0; i < GLOBAL.gameLevel / 2; i++) {
         let cardSuits = suits[`${~~(Math.random() * suits.length)}`];
         let cardCards = cards[`${~~(Math.random() * cards.length)}`];
-        playCards.push(`url(./img/cards/${cardSuits}/${cardCards}.png)`);
-        playCards.push(`url(./img/cards/${cardSuits}/${cardCards}.png)`);
+        playCards.push(`url(./src/img/cards/${cardSuits}/${cardCards}.png)`);
+        playCards.push(`url(./src/img/cards/${cardSuits}/${cardCards}.png)`);
         playCards.sort(() => Math.random() - 0.6);
     }
 }
@@ -117,6 +117,6 @@ function closeCards() {
     for (let i = 0; i < GLOBAL.gameLevel; i++) {
         document.querySelector(
             `.card${i}`
-        ).style.backgroundImage = `url(./img/card-cover.png)`;
+        ).style.backgroundImage = `url(./src/img/card-cover.png)`;
     }
 }

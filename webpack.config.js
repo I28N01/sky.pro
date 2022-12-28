@@ -9,10 +9,7 @@ module.exports = {
     mode: 'production',
     module: {
         rules: [
-            {
-                test: /\.css$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader'],
-            },
+            { test: /\.css$/, use: ['style-loader', 'css-loader'] },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',
@@ -35,14 +32,15 @@ module.exports = {
         new CopyPlugin({
             patterns: [
                 {
-                    from: path.resolve(__dirname, './src/assets'),
-                    to: path.resolve(__dirname, './dist/assets'),
+                    from: path.resolve(__dirname, './src/'),
+                    to: path.resolve(__dirname, './dist/src'),
                     noErrorOnMissing: true,
                 },
             ],
         }),
         new HtmlWebpackPlugin({
-            template: './index.html',
+            template: 'index.html',
+            filename: 'second.html',
         }),
         new MiniCssExtractPlugin(),
         new HtmlWebpackPlugin(),
