@@ -167,3 +167,57 @@ input:focus {
     height: 133px;
     background-color: #fff;
 }
+
+.text {
+    font-family: StratosSkyeng, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    padding: 10px 0 20px;
+}
+
+.final-screen {
+    text-align: center;
+    background: #c2f5ff;
+    padding: 20px 0 50px;
+}
+
+.black {
+    color: black;
+}
+
+.blackout {
+    background: #004980;
+    opacity: 0.9;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+#window {
+    text-align: center;
+    width: 480px;
+    height: 459px;
+    padding: 15px;
+    color: #00c;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    background: #c2f5ff;
+    border-radius: 12px;
+}
+
+.popup {
+    display: block;
+}
+
+.play-again-btn {
+    margin-top: 40px;
+}
