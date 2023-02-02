@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Карточная игра: Найди пару</title>
-    <link rel="stylesheet" href="./css/style.css">
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Карточная игра: Найди пару</title>
+        <link rel="stylesheet" href="./src/style.css" />
+    </head>
+    <body>
+        <section class="firstScreen">
+            <div class="wrap difficulty-selection">
+                <div class="box">
+                    <div class="title-wrap">
+                        <h2 class="header">Выбери сложность</h2>
+                    </div>
+                    <div class="level-wrap">
+                        <div class="level 6">1</div>
+                        <div class="level 12">2</div>
+                        <div class="level 36">3</div>
+                    </div>
+                    <button class="button">Старт</button>
+                </div>
+            </div>
+        </section>
+        <section class="blackout final-screen">
+            <div id="window">
+                <img src="src/img/lose.png" class="final-img" alt="you lose" />
+                <h2 class="header">Вы проиграли!</h2>
+                <p class="text black">Затраченное время:</p>
+                <h2 class="timer-digital black timer-finish">00.00</h2>
+                <button class="button play-again-btn">Играть снова</button>
+            </div>
+        </section>
 
-
-</body>
+        <script src="./src/index.ts"></script>
+    </body>
 </html>
