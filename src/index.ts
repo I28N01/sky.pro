@@ -12,9 +12,17 @@ const gameLevel = document.querySelectorAll('.level');
 
 gameLevel.forEach((level) => {
     level.addEventListener('click', function () {
-        GLOBAL.gameLevel = Number(level.classList[1]);
-        level.classList.add('selected');
-        console.log(GLOBAL.gameLevel);
+        if (level.classList.contains('selected')) {
+            level.classList.remove('selected');
+            GLOBAL.gameLevel = 0;
+        } else {
+            gameLevel.forEach((level2) => {
+                level2.classList.remove('selected');
+            });
+            GLOBAL.gameLevel = Number(level.classList[1]);
+            level.classList.add('selected');
+            console.log(GLOBAL.gameLevel);
+        }
     });
 });
 
@@ -22,6 +30,13 @@ startButton.addEventListener('click', function () {
     if (GLOBAL.gameLevel !== 0) {
         clearScreen(document.querySelector('.firstScreen'));
         CreateGameScreen();
+    } else {
+        document.querySelector('.header').classList.add('bounce');
+        setTimeout(ChooseYourDestiny, 1000);
+    }
+
+    function ChooseYourDestiny() {
+        document.querySelector('.header').classList.remove('bounce');
     }
 });
 
@@ -49,40 +64,29 @@ function CreateGameScreen() {
     createCards();
     for (let i = 0; i < GLOBAL.gameLevel; i++) {
         renderScreen('div', `play-card card${i} ${i}`, document.querySelector('.card-field'), null);
-        document.querySelector<HTMLElement>(`.card${i}`).style.backgroundImage ===
-            `${playCards[i]}`;
+        const card = document.querySelector<HTMLElement>(`.card${i}`);
+        card.style.backgroundImage = `${playCards[i]}`;
     }
 
     /** закрытие карт */
     timer();
     setTimeout(closeCards, 5000);
+    setTimeout(OpenCards, 5000);
 
     /** Открытие карт */
-    const playCard = document.querySelectorAll('.play-card');
-    playCard.forEach((card) => {
-        card.addEventListener('click', function () {
-            let cardNumber = card.classList[2];
-            document.querySelector<HTMLElement>(`.card${cardNumber}`).style.backgroundImage ===
-                `${playCards[cardNumber]}`;
-            document.querySelector(`.card${cardNumber}`).classList.add('active');
-            document.querySelector(`.card${cardNumber}`).classList.add('done');
-            let active = document.querySelectorAll<HTMLElement>(`.active`);
+    function OpenCards() {
+        const playCard = document.querySelectorAll('.play-card');
+        playCard.forEach((card) => {
+            card.addEventListener('click', function () {
+                let cardNumber = card.classList[2];
+                const card1 = document.querySelector<HTMLElement>(`.card${cardNumber}`);
+                card1.style.backgroundImage = `${playCards[cardNumber]}`;
 
-            if (GLOBAL.gameLevel <= document.querySelectorAll('.done').length) {
-                clearTimeout(t);
-                document.querySelector(`.blackout`).classList.add('popup');
-                document.querySelector('.play-again-btn').addEventListener('click', function () {
-                    document.location.reload();
-                });
-                document.querySelector(`.header`).textContent = 'Вы выйграли! ';
-                document.querySelector<HTMLImageElement>(`.final-img`).src === 'src/img/win.png';
-            }
-            if (active.length > 1) {
-                if (active[0].style.backgroundImage === active[1].style.backgroundImage) {
-                    playCard.forEach(() => {
-                        document.querySelector(`.active`).classList.remove('active');
-                    });
-                } else {
+                document.querySelector(`.card${cardNumber}`).classList.add('active');
+                document.querySelector(`.card${cardNumber}`).classList.add('done');
+                let active = document.querySelectorAll<HTMLElement>(`.active`);
+
+                if (GLOBAL.gameLevel <= document.querySelectorAll('.done').length) {
                     clearTimeout(t);
                     document.querySelector(`.blackout`).classList.add('popup');
                     document
@@ -90,10 +94,30 @@ function CreateGameScreen() {
                         .addEventListener('click', function () {
                             document.location.reload();
                         });
+                    document.querySelector(`.header`).textContent = 'Вы выйграли! ';
+                    const card3 = document.querySelector<HTMLImageElement>(`.final-img`);
+                    card3.src = 'src/img/win.png';
                 }
-            }
+                if (active.length > 1) {
+                    if (active[0].style.backgroundImage === active[1].style.backgroundImage) {
+                        playCard.forEach(() => {
+                            if (document.querySelector(`.active`)) {
+                                document.querySelector(`.active`).classList.remove('active');
+                            }
+                        });
+                    } else {
+                        clearTimeout(t);
+                        document.querySelector(`.blackout`).classList.add('popup');
+                        document
+                            .querySelector('.play-again-btn')
+                            .addEventListener('click', function () {
+                                document.location.reload();
+                            });
+                    }
+                }
+            });
         });
-    });
+    }
 }
 
 /** Функции */
@@ -122,8 +146,8 @@ function createCards() {
 
 function closeCards() {
     for (let i = 0; i < GLOBAL.gameLevel; i++) {
-        document.querySelector<HTMLElement>(`.card${i}`).style.backgroundImage ===
-            `url(./src/img/card-cover.png)`;
+        const card5 = document.querySelector<HTMLElement>(`.card${i}`);
+        card5.style.backgroundImage = `url(./src/img/card-cover.png)`;
     }
 }
 
